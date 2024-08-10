@@ -1,0 +1,14 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted to LF on checkout.
+*.java text
+*.xml text
+*.properties text
+*.sh text
+
+# Declare binary files - do not normalize these files.
+*.png binary
+*.jpg binary
+*.gif binary
+*.jar binary
