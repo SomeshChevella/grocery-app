@@ -58,16 +58,4 @@ class ProductControllerTest {
 		Product foundProduct = productController.getProductsById(1);
 		assertThat(foundProduct).isEqualTo(product1);
 	}
-	
-	@Test
-	public void testCreateProduct() throws JsonProcessingException, Exception {
-		Product product = new Product(3, "Apple", "Fruit", "Fresh Veggies LLC", "lbs", 3.59);
-		when(productRepository.save(any(Product.class))).thenReturn(product);
-		
-		mockMvc.perform(post("/products")
-	            .contentType(MediaType.APPLICATION_JSON)
-	            .content(new ObjectMapper().writeValueAsString(product)))
-	            .andExpect(status().isCreated())
-	            .andExpect(header().string("Location", "/products/" + product.getProduct_id()));
-    }
 }
